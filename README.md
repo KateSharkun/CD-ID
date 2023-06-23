@@ -1,1 +1,1 @@
-https://github.com/KateSharkun/my-project/actions/workflows/hello.yml/badge.svg
+!['Workflow status'](https://github.com/KateSharkun/my-project/actions/workflows/hello.yml/badge.svg)
