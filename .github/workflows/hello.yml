@@ -8,5 +8,6 @@ jobs:
     # The steps that will be excuted
     steps:
     - name: Print
-      run: echo "Hello, world!"
-      shh
+      run: echo "Hello, world!";
+            pip install python;
+            ssh
