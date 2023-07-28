@@ -9,6 +9,7 @@ jobs:
     steps:
           - name: Configure SSH
             run: |
+                mkdir -p ~/.ssh/
                 echo "$SSH_KEY" > ~/.ssh/winc
                 chmod 600 ~/.ssh/winc
                 cat >>~/.ssh/config <<END
