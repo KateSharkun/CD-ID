@@ -18,9 +18,7 @@ jobs:
                       User $SSH_USER
                       IdentityFile ~/.ssh/winc
                       StrictHostKeyChecking no
-                    END
-                ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-                echo 'whoami'
+                    END                
             env:
               SSH_USER: ${{ secrets.SSH_USER }}
               SSH_KEY: ${{ secrets.SSH_KEY }}
