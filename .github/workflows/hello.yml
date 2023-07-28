@@ -26,5 +26,5 @@ jobs:
               SSH_HOST: ${{ secrets.SSH_HOST }}
             
           - name: Check the server
-            run: ssh staging 'ssh'
+            run: ssh staging 'whoami'
              
