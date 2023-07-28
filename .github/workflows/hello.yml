@@ -7,7 +7,20 @@ jobs:
     runs-on: ubuntu-20.04
     # The steps that will be excuted
     steps:
-    - name: Print
-      run: echo "Hello, world!";
-
-          ssh winc@209.38.206.164
+          - name: Configure SSH
+            run: |
+                echo "$SSH_KEY" > ~/.ssh/winc
+                chmod 600 ~/.ssh/winc
+                cat >>~/.ssh/config <<END
+                  Host staging
+                      HostName $SSH_HOST
+                      User $SSH_USER
+                      IdentityFile ~/.ssh/staging.key
+                      StrictHostKeyChecking no
+                    END
+                ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+                whoami
+            env:
+              SSH_USER: ${{ secrets.SSH_USER }}
+              SSH_KEY: ${{ secrets.SSH_KEY }}
+              SSH_HOST: ${{ secrets.SSH_HOST }}
