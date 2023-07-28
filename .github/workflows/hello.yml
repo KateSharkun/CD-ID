@@ -12,20 +12,18 @@ jobs:
                 mkdir -p ~/.ssh/
                 echo "$SSH_KEY" > ~/.ssh/staging.key
                 chmod 600 ~/.ssh/staging.key
-                cat >>~/.ssh/config <<
+                cat >>~/.ssh/config <<END
                   Host staging
                       HostName $SSH_HOST
                       User $SSH_USER
                       IdentityFile ~/.ssh/staging.key
                       StrictHostKeyChecking no
-                      PubkeyAuthentication yes
-                  
-                                    
+                      PubkeyAuthentication yes                  
             env:
               SSH_USER: ${{ secrets.SSH_USER }}
               SSH_KEY: ${{ secrets.SSH_KEY }}
               SSH_HOST: ${{ secrets.SSH_HOST }}
             
           - name: Check the server
-            run: ssh staging 'whoami'
+            run: ssh staging 'ssh'
              
