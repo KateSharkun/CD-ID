@@ -27,4 +27,6 @@ jobs:
           - name: Start the server
             if: ${{ always() }}
             run: ssh staging 'sudo systemctl start my-application'
-                 whoami
+          - name: Check the server
+            run: whoami
+             
