@@ -24,7 +24,7 @@ jobs:
               SSH_KEY: ${{ secrets.SSH_KEY }}
               SSH_HOST: ${{ secrets.SSH_HOST }}
             
-            - name: Start the server
+          - name: Start the server
             if: ${{ always() }}
             run: ssh staging 'sudo systemctl start my-application'
                  whoami
