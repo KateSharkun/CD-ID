@@ -20,7 +20,7 @@ jobs:
                       StrictHostKeyChecking no
                     END
                 ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-                whoami
+                echo 'whoami'
             env:
               SSH_USER: ${{ secrets.SSH_USER }}
               SSH_KEY: ${{ secrets.SSH_KEY }}
