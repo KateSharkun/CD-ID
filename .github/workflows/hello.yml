@@ -10,10 +10,10 @@ jobs:
           - name: Configure SSH
             run: |
                 mkdir -p ~/.ssh/
-                echo "$SSH_KEY" > ~/.ssh/winc
-                chmod 600 ~/.ssh/winc
+                echo "$SSH_KEY" > ~/.ssh/winc.key
+                chmod 600 ~/.ssh/winc.key
                 cat >>~/.ssh/config <<END
-                  Host staging
+                  Host winc
                       HostName $SSH_HOST
                       User $SSH_USER
                       IdentityFile ~/.ssh/winc
@@ -25,5 +25,5 @@ jobs:
               SSH_HOST: ${{ secrets.SSH_HOST }}
             
           - name: Check the server
-            run: whoami
+            run: ssh winc 'whoami'
              
